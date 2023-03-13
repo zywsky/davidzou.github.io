@@ -5,15 +5,22 @@
   
 
   
-  <title>David Sky</title>
+  <title>shell实现循环 | David Sky</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="David Sky">
-<meta property="og:url" content="https://zywsky.github.io/davidzou.github.io/index.html">
+  <meta name="description" content="For循环语法1. 列表for循环数字范围的遍历1234for i in 1 2 3 4 5do   echo &quot;Welcome $i times&quot;done  简略写法1234for i in &amp;#123;1..5&amp;#125;do    echo &quot;Welcome $i times&quot;done 指定step: {START..END..增量}语法12345ec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell实现循环">
+<meta property="og:url" content="https://zywsky.github.io/davidzou.github.io/2023/03/13/shell%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF/index.html">
 <meta property="og:site_name" content="David Sky">
+<meta property="og:description" content="For循环语法1. 列表for循环数字范围的遍历1234for i in 1 2 3 4 5do   echo &quot;Welcome $i times&quot;done  简略写法1234for i in &amp;#123;1..5&amp;#125;do    echo &quot;Welcome $i times&quot;done 指定step: {START..END..增量}语法12345ec">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://zywsky.github.io/davidzou.github.io/2023/03/13/shell%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF/image/img.png">
+<meta property="og:image" content="https://zywsky.github.io/davidzou.github.io/2023/03/13/shell%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF/image/img2.png">
+<meta property="article:published_time" content="2023-03-13T14:01:50.153Z">
+<meta property="article:modified_time" content="2023-03-13T15:57:45.279Z">
 <meta property="article:author" content="David Zou">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zywsky.github.io/davidzou.github.io/2023/03/13/shell%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF/image/img.png">
   
     <link rel="alternate" href="/davidzou.github.io/atom.xml" title="David Sky" type="application/atom+xml">
   
@@ -62,105 +69,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-shell基础" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/davidzou.github.io/2023/03/13/shell%E5%9F%BA%E7%A1%80/" class="article-date">
-  <time datetime="2023-03-13T15:58:02.651Z" itemprop="datePublished">2023-03-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/davidzou.github.io/2023/03/13/shell%E5%9F%BA%E7%A1%80/">shell中的条件判断</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><ul>
-<li>等待输入<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">read -p &quot;please input :&quot; h</span><br><span class="line">echo $h</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zywsky.github.io/davidzou.github.io/2023/03/13/shell%E5%9F%BA%E7%A1%80/" data-id="clf70fl9r0000kcu2g23s1n5o" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-shell中的条件判断" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/davidzou.github.io/2023/03/13/shell%E4%B8%AD%E7%9A%84%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD/" class="article-date">
-  <time datetime="2023-03-13T15:45:37.667Z" itemprop="datePublished">2023-03-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/davidzou.github.io/2023/03/13/shell%E4%B8%AD%E7%9A%84%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD/">shell中的条件判断</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="If-判断"><a href="#If-判断" class="headerlink" title="If 判断"></a>If 判断</h1><ul>
-<li><p>单分支if语句</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if    条件判断;then                    #其中条件判断可以是linux的命令，也可以是[ ]命令的条件判断语句</span><br><span class="line"></span><br><span class="line">        语句体</span><br><span class="line"></span><br><span class="line">fi</span><br></pre></td></tr></table></figure></li>
-<li><p>双分支if语句</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if    条件判断;then                    #其中条件判断可以是linux的命令，也可以是[ ]命令的条件判断语句</span><br><span class="line"></span><br><span class="line">        语句体1</span><br><span class="line"></span><br><span class="line">else</span><br><span class="line"></span><br><span class="line">        语句体2</span><br><span class="line"></span><br><span class="line">fi</span><br></pre></td></tr></table></figure></li>
-<li><p>多分支if语句</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">if    条件判断;then                   #其中条件判断可以是linux的命令，也可以是[ ]命令的条件判断语句</span><br><span class="line"></span><br><span class="line">        语句体1</span><br><span class="line"></span><br><span class="line">elif   条件判断;then                 #其中条件判断可以是linux的命令，也可以是[ ]命令的条件判断语句</span><br><span class="line"></span><br><span class="line">        语句体2</span><br><span class="line"></span><br><span class="line">elif   条件判断;then                 #其中条件判断可以是linux的命令，也可以是[ ]命令的条件判断语句</span><br><span class="line"></span><br><span class="line">         语句体3</span><br><span class="line"></span><br><span class="line">...                         #表示可以有多个</span><br><span class="line"></span><br><span class="line">else</span><br><span class="line"></span><br><span class="line">         语句体...</span><br><span class="line"></span><br><span class="line">fi</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="shell中的case条件判断"><a href="#shell中的case条件判断" class="headerlink" title="shell中的case条件判断"></a>shell中的case条件判断</h1><p>case语句结构特点如下：</p>
-<p> case行尾必须为单词“in”，每一个模式必须以右括号“）”结束。</p>
-<p> 双分号”;;”表示命令序列结束。</p>
-<p> 匹配模式中可是使用方括号表示一个连续的范围，如[0-9]；使用竖杠符号“|”表示或。</p>
-<p> 最后的“<em>）”表示默认模式，当使用前面的各种模式均无法匹配该变量时，将执行“</em>）”后的命令序列。</p>
-<ul>
-<li>单个匹配模式</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">case   $变量名    in</span><br><span class="line"></span><br><span class="line">           模式1)</span><br><span class="line"></span><br><span class="line">           命令序列1</span><br><span class="line"></span><br><span class="line">           ;;</span><br><span class="line"></span><br><span class="line">          模式2)</span><br><span class="line"></span><br><span class="line">           命令序列1</span><br><span class="line"></span><br><span class="line">           ;;</span><br><span class="line"></span><br><span class="line">          .....                          #表示可以有多个</span><br><span class="line"></span><br><span class="line">           *)</span><br><span class="line"></span><br><span class="line">           默认执行的序列</span><br><span class="line"></span><br><span class="line">           ;;</span><br><span class="line"></span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
-<ul>
-<li>合并匹配模式<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">case   $变量名    in</span><br><span class="line"></span><br><span class="line">           模式1|模式2|模式3|......)              #......表示可以有多个</span><br><span class="line"></span><br><span class="line">           命令序列1</span><br><span class="line"></span><br><span class="line">           ;;</span><br><span class="line"></span><br><span class="line">          模式4|模式5|.......)                        #......表示可以有多个</span><br><span class="line"></span><br><span class="line">           命令序列1</span><br><span class="line"></span><br><span class="line">           ;;</span><br><span class="line"></span><br><span class="line">          .....                          #表示可以有多个</span><br><span class="line"></span><br><span class="line">           *)</span><br><span class="line"></span><br><span class="line">           默认执行的序列</span><br><span class="line"></span><br><span class="line">           ;;</span><br><span class="line"></span><br><span class="line">esac</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>Linux下的shell编程之循环（for循环，while循环）和条件判断（if条件判断，case条件判断） <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42303254/article/details/85337214">https://blog.csdn.net/qq_42303254/article/details/85337214</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zywsky.github.io/davidzou.github.io/2023/03/13/shell%E4%B8%AD%E7%9A%84%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD/" data-id="clf70fla60002kcu2cvjwam4h" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-shell实现循环" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-shell实现循环" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/davidzou.github.io/2023/03/13/shell%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF/" class="article-date">
   <time datetime="2023-03-13T14:01:50.153Z" itemprop="datePublished">2023-03-13</time>
@@ -173,8 +82,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/davidzou.github.io/2023/03/13/shell%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF/">shell实现循环</a>
+    <h1 class="article-title" itemprop="name">
+      shell实现循环
     </h1>
   
 
@@ -287,170 +196,28 @@ for file in $( ls )语法的等效语法有很多，如下：<figure class="high
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-程序员经常逛的网站" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/davidzou.github.io/2023/03/07/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%BB%8F%E5%B8%B8%E9%80%9B%E7%9A%84%E7%BD%91%E7%AB%99/" class="article-date">
-  <time datetime="2023-03-07T11:01:24.941Z" itemprop="datePublished">2023-03-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/davidzou.github.io/2023/03/13/shell%E4%B8%AD%E7%9A%84%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/davidzou.github.io/2023/03/07/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%BB%8F%E5%B8%B8%E9%80%9B%E7%9A%84%E7%BD%91%E7%AB%99/">程序员经常逛的网站</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://www.github.com/">github</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/">知乎</a></li>
-</ul>
-<h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://ruanyifeng.com/blog/">阮一峰的网络日志</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zywsky.github.io/davidzou.github.io/2023/03/07/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%BB%8F%E5%B8%B8%E9%80%9B%E7%9A%84%E7%BD%91%E7%AB%99/" data-id="cley5bn1c0000vsu2f7xyh74j" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-spring基本配置" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/davidzou.github.io/2023/03/07/spring%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/" class="article-date">
-  <time datetime="2023-03-07T09:28:05.113Z" itemprop="datePublished">2023-03-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+          shell中的条件判断
         
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/davidzou.github.io/2023/03/07/spring%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">spring基本配置</a>
-    </h1>
   
+    <a href="/davidzou.github.io/2023/03/07/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%BB%8F%E5%B8%B8%E9%80%9B%E7%9A%84%E7%BD%91%E7%AB%99/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">程序员经常逛的网站</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="开启端口"><a href="#开启端口" class="headerlink" title="开启端口"></a>开启端口</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.port=8081          //指定端口</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zywsky.github.io/davidzou.github.io/2023/03/07/spring%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/" data-id="cley1upvk0000bwu28ezi9ugt" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-log-level" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/davidzou.github.io/2023/03/07/log-level/" class="article-date">
-  <time datetime="2023-03-07T08:43:33.215Z" itemprop="datePublished">2023-03-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/davidzou.github.io/2023/03/07/log-level/">log level 设置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="application-properties中设置-log-level-用来研究底层"><a href="#application-properties中设置-log-level-用来研究底层" class="headerlink" title="application.properties中设置 log level, 用来研究底层"></a>application.properties中设置 log level, 用来研究底层</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">logging.level.root=TRACE          //给所有的包开启TRACE level</span><br><span class="line">logging.level.com.example=DEBUG   //给com.example包开启TDEBUG level</span><br></pre></td></tr></table></figure>
-<h3 id="Logback中设置-log-level"><a href="#Logback中设置-log-level" class="headerlink" title="Logback中设置 log level"></a>Logback中设置 log level</h3><h3 id="Log4j中设置-log-level"><a href="#Log4j中设置-log-level" class="headerlink" title="Log4j中设置 log level"></a>Log4j中设置 log level</h3><h3 id="Profile-based-log-level-configuration"><a href="#Profile-based-log-level-configuration" class="headerlink" title="Profile-based log level configuration"></a>Profile-based log level configuration</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zywsky.github.io/davidzou.github.io/2023/03/07/log-level/" data-id="cley1oibh0000u8u22boxhhjo" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/davidzou.github.io/2023/03/07/hello-world/" class="article-date">
-  <time datetime="2023-03-06T16:09:17.457Z" itemprop="datePublished">2023-03-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/davidzou.github.io/2023/03/07/hello-world/">关于写博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="作用与好处"><a href="#作用与好处" class="headerlink" title="作用与好处"></a>作用与好处</h3><ol>
-<li>写博客的过程也是整理知识点的过程, 可以加深理解</li>
-<li>方便后续复习,查找</li>
-<li>个人知识积累</li>
-</ol>
-<p>坚持, 总会见到光..</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zywsky.github.io/davidzou.github.io/2023/03/07/hello-world/" data-id="clex0dstx0000gsu29zaog3vp" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
