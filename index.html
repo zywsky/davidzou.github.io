@@ -89,7 +89,11 @@
         <h3 id="git更改远程仓库地址"><a href="#git更改远程仓库地址" class="headerlink" title="git更改远程仓库地址"></a>git更改远程仓库地址</h3><ul>
 <li>方式1: git bash进行配置</li>
 </ul>
-<p>(1) git remote -v<br>查看原始的fetch和push路径<br>(2) git remote set-url origin <a target="_blank" rel="noopener" href="https://github.com/xxx/xxx.git">https://github.com/xxx/xxx.git</a>   更换新的仓库地址</p>
+<p>(1) 查看原始的fetch和push路径  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+<p>(2) 更换新的仓库地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin https://github.com/xxx/xxx.git 更换新的仓库地址</span><br></pre></td></tr></table></figure>
+
 <p>注: 执行完第二行命令之后可以执行git remote -v 就可以看到最新的仓库地址了 (git remote — 命令管理跟踪的存储库)<br><img src="img/img_1.png" alt="img.png"></p>
 <ul>
 <li>方式2: 修改配置文件<br><img src="img/img_2.png" alt="img.png"><br>打开 .git 文件夹，找到 config 文件，打开修改 url 即可<br><img src="img/img_3.png" alt="img.png"><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料:"></a>参考资料:</h3>git更改远程仓库地址 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/Amerys/p/14721745.html">https://www.cnblogs.com/Amerys/p/14721745.html</a></li>
