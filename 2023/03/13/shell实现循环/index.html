@@ -14,13 +14,13 @@
 <meta property="og:site_name" content="Sky">
 <meta property="og:description" content="For循环语法1. 列表for循环数字范围的遍历1234for i in 1 2 3 4 5do   echo &quot;Welcome $i times&quot;done  简略写法1234for i in &amp;#123;1..5&amp;#125;do    echo &quot;Welcome $i times&quot;done 指定step: {START..END..增量}语法12345ec">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://zywsky.github.io/davidzou.github.io/2023/03/13/shell%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF/image/img.png">
-<meta property="og:image" content="https://zywsky.github.io/davidzou.github.io/2023/03/13/shell%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF/image/img2.png">
+<meta property="og:image" content="https://zywsky.github.io/davidzou.github.io/2023/03/13/shell%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF/img/img.png">
+<meta property="og:image" content="https://zywsky.github.io/davidzou.github.io/2023/03/13/shell%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF/img/img2.png">
 <meta property="article:published_time" content="2023-03-13T14:01:50.153Z">
-<meta property="article:modified_time" content="2023-03-13T15:57:45.279Z">
+<meta property="article:modified_time" content="2023-03-13T16:47:08.916Z">
 <meta property="article:author" content="David Zou">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://zywsky.github.io/davidzou.github.io/2023/03/13/shell%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF/image/img.png">
+<meta name="twitter:image" content="https://zywsky.github.io/davidzou.github.io/2023/03/13/shell%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF/img/img.png">
   
     <link rel="alternate" href="/davidzou.github.io/atom.xml" title="Sky" type="application/atom+xml">
   
@@ -108,7 +108,7 @@
 <li>传入参数列表</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">for i in $* ;  </span><br><span class="line">do  </span><br><span class="line">echo $i is input value\! ;  </span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<p><img src="image/img.png" alt="img.png"></p>
+<p><img src="img/img.png" alt="img.png"></p>
 <h4 id="路径查找for循环"><a href="#路径查找for循环" class="headerlink" title="路径查找for循环"></a>路径查找for循环</h4><p>通过for循环可以查找指定目录下的文件列表，并且可以使用通配符。</p>
 <ul>
 <li>查询当前目录下的文件列表<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">for file in $( ls )</span><br><span class="line">do</span><br><span class="line">   echo &quot;file: $file&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
@@ -133,7 +133,7 @@ for file in $( ls )语法的等效语法有很多，如下：<figure class="high
 <p>或者</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">awk &#x27;BEGIN&#123;</span><br><span class="line">for(i=1; i&lt;=5; i++) </span><br><span class="line">print (i*i+1)</span><br><span class="line">&#125;&#x27;</span><br></pre></td></tr></table></figure>
 <p>计算1~5中数字的平方+1, 结果:</p>
-<p><img src="image/img2.png" alt="img.png"></p>
+<p><img src="img/img2.png" alt="img.png"></p>
 <h1 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h1><p>为了避免死循环，必须保证循环体中包含循环出口条件即表达式存在退出状态为非0的情况.</p>
 <p>计算1~100以内所有的奇数之和：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash  </span><br><span class="line">  </span><br><span class="line">sum=0</span><br><span class="line">i=1  </span><br><span class="line">while(( i &lt;= 100 ))  </span><br><span class="line">do  </span><br><span class="line">     let &quot;sum+=i&quot;  </span><br><span class="line">     let &quot;i += 2&quot;     </span><br><span class="line">done  </span><br><span class="line">  </span><br><span class="line">echo &quot;sum=$sum&quot;</span><br></pre></td></tr></table></figure>
@@ -248,6 +248,10 @@ for file in $( ls )语法的等效语法有很多，如下：<figure class="high
       <ul>
         
           <li>
+            <a href="/davidzou.github.io/2023/03/14/git/">git</a>
+          </li>
+        
+          <li>
             <a href="/davidzou.github.io/2023/03/14/%E7%BD%91%E7%AB%99/%E5%8D%9A%E5%AE%A2/">博客</a>
           </li>
         
@@ -261,10 +265,6 @@ for file in $( ls )语法的等效语法有很多，如下：<figure class="high
         
           <li>
             <a href="/davidzou.github.io/2023/03/13/shell%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF/">shell实现循环</a>
-          </li>
-        
-          <li>
-            <a href="/davidzou.github.io/2023/03/07/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%BB%8F%E5%B8%B8%E9%80%9B%E7%9A%84%E7%BD%91%E7%AB%99/">程序员经常逛的网站</a>
           </li>
         
       </ul>
